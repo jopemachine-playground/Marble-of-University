@@ -33,18 +33,19 @@ Text::Text() {
 	text_player4.setCharacterSize(TEXT_showPlayerInformation_Size);
 }
 
-void Text::drawTextArgu(int num, int what) {
+void Text::drawTextArgu(int num, int what,int turn) {
 	// 이 함수를 what의 값이 몇이냐에 따라 다른 용도로 쓴다.
 	// what이 1이면 현재 턴 수 출력할때, 2이면 플레이어 점수 출력할때..
 	if (what == TextBranch::TRUN_NUMBER) {
 		// "현재 num 턴 입니다."
 		// 한글이 깨지는 현상이 있어, 영어로 대체함.
-		text_turn.setString(L"현재 " + std::to_wstring(num) + L" 턴입니다");
+		text_turn.setString(L"현재 Player" + std::to_wstring(num) + L"의 턴입니다\n\n"+
+			L"전체 "+std::to_wstring(turn)+L"턴 입니다");
 
 	}
-	else if (what == TextBranch::PLAYER_SCORE) {
+	else if (what == 10) {
 		// std::to_string(1) 에서 1은 나중에 코드 짤 때를 위해 분리함.
-		text_player.setString(L"Player " + std::to_wstring(1) + L" 학점: " + std::to_wstring(num));
+		text_turn.setString(L"Player " + std::to_wstring(num) + L" 가 우승하였습니다\n 잠시후 창이 닫힙니다");
 	}
 }
 

@@ -12,6 +12,7 @@ public:
 	bool BoardWithPlayer(Player& player);
 	void passStart(Player& player);
 	void playerScore(Player* player[]);
+	int isWin(Player* player[]);
 	sf::Text getText() {
 		return text_player;
 	}
@@ -21,15 +22,26 @@ public:
 	sf::Text getMessage() {
 		return message;
 	}
+	sf::Text getGoldKeyMessage() {
+		return goldenKeyText;
+	}
+	sf::Text getPlayerState() {
+		return  player_state;
+	}
+	sf::Text getAbsenceText() {
+		return  absenceText;
+	}
 	Board* getBoard() {
 		return allBoard;
 	}
 
 private:
-	
+	sf::Text absenceText;
+	sf::Text goldenKeyText;
 	sf::Text message;
 	sf::Text competitionText;
 	sf::Text text_player;
+	sf::Text player_state;
 	sf::Font font;
 	Board allBoard[50];
 	int competitonScore;

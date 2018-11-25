@@ -27,6 +27,11 @@ loadAndInit::loadAndInit(sf::RenderWindow& window)
 	text_player.setFillColor(sf::Color::Black);
 	text_player.setCharacterSize(TEXT_showPlayerInformation_Size);
 
+	player_state.setFont(font);
+	player_state.setPosition(TEXT_showPlayerInformation_X+180, TEXT_showPlayerInformation_Y);
+	player_state.setFillColor(sf::Color::Black);
+	player_state.setCharacterSize(TEXT_showPlayerInformation_Size);
+
 	competitionText.setFont(font);
 	competitionText.setPosition(570, 100);
 	competitionText.setFillColor(sf::Color::Black);
@@ -34,9 +39,15 @@ loadAndInit::loadAndInit(sf::RenderWindow& window)
 	competitionText.setString(std::to_wstring(competitonScore) + L" 학점");
 
 	message.setFont(font);
-	message.setPosition(300, 300);
+	message.setPosition(250, 300);
 	message.setFillColor(sf::Color::Black);
 	message.setCharacterSize(TEXT_showPlayerInformation_Size);
+
+	goldenKeyText.setFont(font);
+	goldenKeyText.setPosition(150, 400);
+	goldenKeyText.setFillColor(sf::Color::Black);
+	goldenKeyText.setCharacterSize(TEXT_showPlayerInformation_Size-10);
+	
 }
 
 void loadAndInit::init(sf::RenderWindow& window) {
@@ -134,6 +145,8 @@ void loadAndInit::passStart(Player& player){
 	}
 }
 bool loadAndInit::BoardWithPlayer(Player& player) {
+	goldenKeyText.setString(L"\n");
+
 	int index = player.OwnPiece->getPositionIndex();
 	//std::cout << index << endl;
 	//std:cout << allBoard[index].getType()<< endl;
@@ -157,9 +170,24 @@ bool loadAndInit::BoardWithPlayer(Player& player) {
 		message.setString(L"황금열쇠를 뽑습니다");
 		GoldenKey newGold(player);
 		newGold.setKey();
-		newGold.chooseKey();
-
-
+		
+		string key =newGold.chooseKey(&goldenKeyText,allBoard);
+		if(key == "start")
+			player.setScore(player.getScore() + 4);
+		if(key == "move")
+			player.setScore(player.getScore() + allBoard[index+3].getScore());
+		if(key == "Absence")
+			player.setSleep(3);
+		if (key == "competition") {
+			competitonScore += 2;
+			competitionText.setString(std::to_wstring(competitonScore) + L" 학점");
+		}
+		if (key == "time")
+			return true;
+		if (key == "money") {
+			player.setScore(player.getScore() + competitonScore);
+			competitonScore = 0;
+		}
 	}
 	if (allBoard[index].getType() == "start") {
 		std::cout << "시작점" << endl;
@@ -194,7 +222,7 @@ bool loadAndInit::BoardWithPlayer(Player& player) {
 	if (allBoard[index].getType() == "money") {
 		std::cout << "공모전상금" << endl;
 		player.setScore(player.getScore() + competitonScore);
-		message.setString(L"공모전 상금" + std::to_wstring(competitonScore)+ L"학점을 흭득합니다");
+		message.setString(L"공모전 상금" + std::to_wstring(competitonScore)+ L"학점을 얻습니다");
 		competitonScore = 0;
 		competitionText.setString(std::to_wstring(competitonScore) + L" 학점");
 		
@@ -236,6 +264,133 @@ void loadAndInit::playerScore(Player* player[]) {
 		+ L"\n현재위치:" + player4Postion
 		+ L"\n"
 		);
+
+
+	int p1Turn=0;
+	wstring p1State=L" ";
+	if (player[1]->getSpecialTurn() > 0) {
+		p1Turn = player[1]->getSpecialTurn();
+		p1State = L" 추가 증가 남은턴: ";
+	}
+	if (player[1]->getSpecialTurn() < 0) {
+		p1Turn = -1*player[1]->getSpecialTurn();
+		p1State = L" 추가 감소 남은턴: ";
+	}
+	wstring p1States = L" ";
+	if (p1Turn != 0)
+		p1States = std::to_wstring(p1Turn);
 	
-	
+	wstring p1Sleep = L" ";
+	wstring p1Sleep1 = L" ";
+	wstring p1Sleep2 = L" ";
+	if (player[1]->getSleep() > 0) {
+		p1Sleep = L" 무인도 탈출까지 ";
+		p1Sleep1 = std::to_wstring(player[1]->getSleep());
+		p1Sleep2 = L" 턴 남았습니다";
+	}
+
+
+	int p2Turn = 0;
+	wstring p2State = L" ";
+	if (player[2]->getSpecialTurn() > 0) {
+		p2Turn = player[2]->getSpecialTurn();
+		p2State = L" 추가 증가 남은턴: ";
+	}
+	if (player[2]->getSpecialTurn() < 0) {
+		p2Turn = -1 * player[2]->getSpecialTurn();
+		p2State = L" 추가 감소 남은턴: ";
+	}
+	wstring p2States = L" ";
+	if (p2Turn != 0)
+		p2States = std::to_wstring(p2Turn);
+
+	wstring p2Sleep = L" ";
+	wstring p2Sleep1 = L" ";
+	wstring p2Sleep2 = L" ";
+	if (player[2]->getSleep() > 0) {
+		p2Sleep = L" 무인도 탈출까지 ";
+		p2Sleep1 = std::to_wstring(player[2]->getSleep());
+		p2Sleep2 = L" 턴 남았습니다";
+	}
+
+
+	int p3Turn = 0;
+	wstring p3State = L"";
+	if (player[3]->getSpecialTurn() > 0) {
+		p3Turn = player[3]->getSpecialTurn();
+		p3State = L" 추가 증가 남은턴: ";
+	}
+	if (player[3]->getSpecialTurn() < 0) {
+		p3Turn = -1 * player[3]->getSpecialTurn();
+		p3State = L" 추가 감소 남은턴: ";
+	}
+	wstring p3States = L" ";
+	if (p3Turn != 0)
+		p3States = std::to_wstring(p3Turn);
+
+	wstring p3Sleep = L" ";
+	wstring p3Sleep1 = L" ";
+	wstring p3Sleep2 = L" ";
+	if (player[3]->getSleep() > 0) {
+		p3Sleep = L" 무인도 탈출까지 ";
+		p3Sleep1 = std::to_wstring(player[3]->getSleep());
+		p3Sleep2 = L" 턴 남았습니다";
+	}
+
+	int p4Turn = 0;
+	wstring p4State = L" ";
+	if (player[4]->getSpecialTurn() > 0) {
+		p4Turn = player[4]->getSpecialTurn();
+		p4State = L" 추가 증가 남은턴: ";
+	}
+	if (player[4]->getSpecialTurn() < 0) {
+		p4Turn = -1 * player[4]->getSpecialTurn();
+		p4State = L" 추가 감소 남은턴: ";
+	}
+	wstring p4States = L" ";
+	if (p4Turn != 0)
+		p4States = std::to_wstring(p4Turn);
+
+	wstring p4Sleep = L" ";
+	wstring p4Sleep1 = L" ";
+	wstring p4Sleep2 = L" ";
+	if (player[4]->getSleep() > 0) {
+		p4Sleep = L" 무인도 탈출까지 ";
+		p4Sleep1 = std::to_wstring(player[4]->getSleep());
+		p4Sleep2 = L" 턴 남았습니다";
+	}
+
+
+
+
+
+	player_state.setString
+		(	  L""+p1State+p1States
+			+ L"\n "+p1Sleep+p1Sleep1+p1Sleep2
+			+ L"\n "
+			+ L"\n "
+			+p2State + p2States
+			+ L"\n " + p2Sleep + p2Sleep1 + p2Sleep2
+			+ L"\n "
+			+ L"\n "
+			+p3State + p3States
+			+ L"\n " + p3Sleep + p3Sleep1 + p3Sleep2
+			+ L"\n "
+			+ L"\n "
+			+p4State + p4States
+			+ L"\n " + p4Sleep + p4Sleep1 + p4Sleep2
+			+ L"\n "
+			+ L"\n "
+		
+		);
+
+}
+int loadAndInit::isWin(Player* player[]) {
+
+	for (int i = 1; i < 5; i++)
+	{
+		if (player[i]->getScore() >= 120)
+			return i;
+	}
+	return 0;
 }

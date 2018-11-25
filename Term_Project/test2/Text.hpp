@@ -25,7 +25,7 @@ private:
 public:
 	Text();
 	sf::Font getMenuFont() { return font; }
-	void drawTextArgu(int num, int what);
+	void drawTextArgu(int num, int what,int turn);
 	
 	sf::Text getText(int num);
 	sf::Text text_player;

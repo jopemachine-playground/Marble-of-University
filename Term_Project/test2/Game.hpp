@@ -82,5 +82,8 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define TEXT_showPlayerInformation_Y 0
 #define TEXT_showPlayerInformation_Size 35
 
+// ※ RULE
+#define RULE_playerPlayingNumber 4 // 게임에 참가하는 플레이어 수. 1~4
+#define RULE_WinScore 120
 
 #endif

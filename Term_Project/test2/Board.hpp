@@ -34,7 +34,7 @@ public:
 	sf::Sprite getSprite() { return sprite; }
 	sf::Texture getTexture() { return texture; }
 
-	void setText(int x, int y, std::string name) {
+	void setText(float x, float y, std::string name) {
 		USES_CONVERSION;
 
 		std::wstring ws(A2W(name.c_str()));

@@ -65,6 +65,12 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define SELECTED_ITEM_COLOR sf::Color::Cyan // 메뉴 색깔
 #define MENU_FONTSIZE 120 // 메뉴 폰트 크기
 
+// ※ StartMenu.hpp
+#define MAX_NUMBER_OF_STARTMENU_ITEMS 3
+#define DEFAULT_STARTMENU_ITEM_COLOR sf::Color(255, 255, 255, 200) // 메뉴 색깔 
+#define SELECTED_STARTMENU_ITEM_COLOR sf::Color::Cyan // 메뉴 색깔
+#define GAME_TITLE_COLOR sf::Color::White
+
 // ※ Sound.hpp
 #define FILE_pieceMoveSound "sounds/PieceMoveSound.ogg"
 #define FILE_buttonClickedSound "sounds/ButtonClicked.ogg"
@@ -82,8 +88,5 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define TEXT_showPlayerInformation_Y 0
 #define TEXT_showPlayerInformation_Size 35
 
-// ※ RULE
-#define RULE_playerPlayingNumber 4 // 게임에 참가하는 플레이어 수. 1~4
-#define RULE_WinScore 120
 
 #endif

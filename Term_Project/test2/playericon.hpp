@@ -19,12 +19,15 @@ public:
 	sf::Sprite getSprite() { return sprite; }
 	int getPositionIndex() { return positionIndex; }
 
-	Icon(sf::RenderWindow& WindowRef, std::string number, int xPosition, int yPosition) {
+	
+	Icon(sf::RenderWindow& WindowRef, std::string number,int xPosition,int yPosition) {
 		texture.loadFromFile("images/Piece" + number + ".png");
 		texture.setSmooth(true);
 		sprite.setTexture(texture);
 		sprite.setPosition(xPosition, yPosition);
 	}
+
+
 
 };
 

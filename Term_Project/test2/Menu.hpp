@@ -18,6 +18,7 @@ class Menu {
 		int selectedItemIndex = 0;
 	
 	public:
+		Menu() {}
 		Menu(float width, float height);
 		void draw(sf::RenderWindow& window);
 

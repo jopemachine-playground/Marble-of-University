@@ -235,9 +235,9 @@ bool loadAndInit::BoardWithPlayer(Player& player) {
 	return false;
 }
 void loadAndInit::playerScore(Player* player[]) {
-	/*
-	USES_CONVERSION;
+	
 	int player1index = player[1]->OwnPiece->getPositionIndex();
+	USES_CONVERSION;
 	std::wstring player1Postion(A2W((allBoard[player1index].getName()).c_str()));
 	int player2index = player[2]->OwnPiece->getPositionIndex();
 	std::wstring player2Postion(A2W(allBoard[player2index].getName().c_str()));
@@ -245,14 +245,15 @@ void loadAndInit::playerScore(Player* player[]) {
 	std::wstring player3Postion(A2W(allBoard[player3index].getName().c_str()));
 	int player4index = player[4]->OwnPiece->getPositionIndex();
 	std::wstring player4Postion(A2W(allBoard[player4index].getName().c_str()));
-	
+
+
 	text_player.setString
-	(L" Player 1  학점: " + std::to_wstring(player[1]->getScore())
-		+ L"\n현재위치:" + player1Postion
+		( L" Player 1  학점: " + std::to_wstring(player[1]->getScore())
+		+ L"\n현재위치:"+ player1Postion
 		+ L"\n "
 		+ L"\n "
 		+ L"Player 2  학점: " + std::to_wstring(player[2]->getScore())
-		+ L"\n현재위치:" + player2Postion
+		+ L"\n현재위치:"+ player2Postion
 		+ L"\n"
 		+ L"\n "
 		+ L"Player 3  학점: " + std::to_wstring(player[3]->getScore())
@@ -262,27 +263,9 @@ void loadAndInit::playerScore(Player* player[]) {
 		+ L"Player 4  학점: " + std::to_wstring(player[4]->getScore())
 		+ L"\n현재위치:" + player4Postion
 		+ L"\n"
-	);
-	*/
-	USES_CONVERSION;
-	int playerindexes[RULE_playerPlayingNumber + 1];
-	std::wstring playerPostion[RULE_playerPlayingNumber + 1];
-	for (int i = 1; i <= RULE_playerPlayingNumber; i++) {
-		playerindexes[i] = player[i]->OwnPiece->getPositionIndex();
-		playerPostion[i] = std::wstring(A2W((allBoard[playerindexes[i]].getName()).c_str()));
-	}
+		);
 
-	//"+std::to_wstring(4)+"
-	text_player.setString("");
-	for (int i = 1; i <= RULE_playerPlayingNumber; i++) {
-		text_player.setString(text_player.getString() +
-			L" Player " + std::to_wstring(i)
-			+ L" 학점: " + std::to_wstring(player[i]->getScore())
-			+ L"\n현재위치:" + playerPostion[i]
-			+ L"\n "
-			+ L"\n ");
-	}
-	/*
+
 	int p1Turn=0;
 	wstring p1State=L" ";
 	if (player[1]->getSpecialTurn() > 0) {
@@ -377,6 +360,10 @@ void loadAndInit::playerScore(Player* player[]) {
 		p4Sleep2 = L" 턴 남았습니다";
 	}
 
+
+
+
+
 	player_state.setString
 		(	  L""+p1State+p1States
 			+ L"\n "+p1Sleep+p1Sleep1+p1Sleep2
@@ -396,54 +383,13 @@ void loadAndInit::playerScore(Player* player[]) {
 			+ L"\n "
 		
 		);
-	*/
-	int pTurn[RULE_playerPlayingNumber + 1];
-	wstring pState[RULE_playerPlayingNumber + 1];
-	wstring pStates[RULE_playerPlayingNumber + 1];
-	wstring pSleep[RULE_playerPlayingNumber + 1];
-	wstring pSleep1[RULE_playerPlayingNumber + 1];
-	wstring pSleep2[RULE_playerPlayingNumber + 1];
-
-	for (int i = 1; i <= RULE_playerPlayingNumber; i++) {
-		pTurn[i] = 0;
-		pState[i] = L" ";
-		if (player[i]->getSpecialTurn() > 0) {
-			pTurn[i] = player[i]->getSpecialTurn();
-			pState[i] = L" 추가 증가 남은턴: ";
-		}
-		if (player[i]->getSpecialTurn() < 0) {
-			pTurn[i] = -1 * player[i]->getSpecialTurn();
-			pState[i] = L" 추가 감소 남은턴: ";
-		}
-		pStates[i] = L" ";
-		if (pTurn[i] != 0)
-			pStates[i] = std::to_wstring(pTurn[i]);
-
-		pSleep[i] = L" ";
-		pSleep1[i] = L" ";
-		pSleep2[i] = L" ";
-		if (player[i]->getSleep() > 0) {
-			pSleep[i] = L" 무인도 탈출까지 ";
-			pSleep1[i] = std::to_wstring(player[i]->getSleep());
-			pSleep2[i] = L" 턴 남았습니다";
-		}
-	}
-
-	player_state.setString("");
-	for (int i = 1; i <= RULE_playerPlayingNumber; i++) {
-		player_state.setString(player_state.getString() +
-			L"" + pState[i] + pStates[i]
-			+ L"\n " + pSleep[i] + pSleep1[i] + pSleep2[i]
-			+ L"\n "
-			+ L"\n ");
-	}
 
 }
 int loadAndInit::isWin(Player* player[]) {
 
-	for (int i = 1; i <= RULE_playerPlayingNumber; i++)
+	for (int i = 1; i < 5; i++)
 	{
-		if (player[i]->getScore() >= RULE_WinScore)
+		if (player[i]->getScore() >= 120)
 			return i;
 	}
 	return 0;

@@ -3,14 +3,13 @@
 
 #include "SFML/Graphics.hpp"
 #include "Piece.hpp"
-#include "Turn.hpp"
 
 class Player {
 
 private:
 	int score;
 	int sleep;
-	Turn specialTurn;
+	int specialTurn;
 public:
 	Player() {
 
@@ -25,8 +24,8 @@ public:
 	void setSleep(int _sleep) {
 		sleep = _sleep;
 	}
-	void setSpecialTurn(Turn aTurn);
-	Turn getSpecialTurn();
+	void setSpecialTurn(int aTurn);
+	int getSpecialTurn();
 };
 
 #endif

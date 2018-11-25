@@ -7,12 +7,10 @@
 class Turn {
 
 public:
-
+	int turn_num;
 	Turn() { turn_num = 1; };
 	void IncTurn() { ++turn_num; }
 	int getTurn() { return turn_num; }
-	void setTurn(int num) { turn_num = num; }
-	int turn_num;
 };
 
 

@@ -10,30 +10,31 @@ StartMenu::StartMenu(float width, float height) {
 	startMenuSprite.setTexture(startMenuTexture);
 	startMenuSprite.setPosition(0,0);
 	
-	font.loadFromFile(FILE_menuFont);
+	Menufont.loadFromFile(FILE_StartMenuFont);
+	GameTitleFont.loadFromFile(FILE_StartMenuGameTitleFont);
 
-	startMenuText[0].setFont(font);
+	startMenuText[0].setFont(Menufont);
 	startMenuText[0].setFillColor(SELECTED_STARTMENU_ITEM_COLOR);
 	startMenuText[0].setString("Play");
 	startMenuText[0].setCharacterSize(70);
 	startMenuText[0].setPosition(sf::Vector2f(100, 420));
 
-	startMenuText[1].setFont(font);
+	startMenuText[1].setFont(Menufont);
 	startMenuText[1].setFillColor(DEFAULT_STARTMENU_ITEM_COLOR);
 	startMenuText[1].setString("Options");
 	startMenuText[1].setCharacterSize(70);
 	startMenuText[1].setPosition(sf::Vector2f(100, 490));
 
-	startMenuText[2].setFont(font);
+	startMenuText[2].setFont(Menufont);
 	startMenuText[2].setFillColor(DEFAULT_STARTMENU_ITEM_COLOR);
 	startMenuText[2].setString("Exit");
 	startMenuText[2].setCharacterSize(70);
 	startMenuText[2].setPosition(sf::Vector2f(100, 560));
 
-	GameTitle.setFont(font);
+	GameTitle.setFont(GameTitleFont);
 	GameTitle.setString("Marble of University!");
 	GameTitle.setFillColor(GAME_TITLE_COLOR);
-	GameTitle.setCharacterSize(130);
+	GameTitle.setCharacterSize(110);
 	GameTitle.setPosition(sf::Vector2f(150, 100));
 
 }

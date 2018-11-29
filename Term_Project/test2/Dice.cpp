@@ -5,8 +5,6 @@
 #include "Dice.hpp"
 
 #include <random>
-#include <iostream>
-
 
 // Dice 객체는 난수를 생성하고 관리해주는 역할을 함.
 Dice::Dice() {

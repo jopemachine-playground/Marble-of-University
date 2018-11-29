@@ -4,12 +4,6 @@
 #include "SFML/Graphics.hpp"
 #include "Game.hpp"
 
-enum MenuButton {
-	BUTTON_PLAY = 0,
-	BUTTON_OPTION = 1,
-	BUTTON_QUIT = 2
-};
-
 class Menu {
 
 	private:
@@ -18,6 +12,13 @@ class Menu {
 		int selectedItemIndex = 0;
 	
 	public:
+		
+		enum {
+			BUTTON_PLAY = 0,
+			BUTTON_GOTOTITLE = 1,
+			BUTTON_QUIT = 2
+		};
+
 		Menu() {}
 		Menu(float width, float height);
 		void draw(sf::RenderWindow& window);

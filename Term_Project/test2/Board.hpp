@@ -6,8 +6,8 @@
 #include <CRTDBG.H>
 #include <atlconv.h>
 
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef BOARD_HPP
+#define BOARD_HPP
 
 class Board : public DrawableObject
 {

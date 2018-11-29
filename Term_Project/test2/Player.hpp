@@ -26,6 +26,8 @@ public:
 	}
 	void setSpecialTurn(int aTurn);
 	int getSpecialTurn();
+
+	void drawPlayer(sf::RenderWindow& window, Player *player[]);
 };
 
 #endif

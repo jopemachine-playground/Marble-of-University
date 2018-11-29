@@ -11,12 +11,19 @@ private:
 	sf::Texture startMenuTexture;
 	sf::Sprite startMenuSprite;
 
-	sf::Font font;
+	sf::Font Menufont;
+	sf::Font GameTitleFont;
 	sf::Text GameTitle;
 	sf::Text startMenuText[MAX_NUMBER_OF_STARTMENU_ITEMS];
 	int selectedItemIndex = 0;
 
 public:
+
+	enum {
+		BUTTON_PLAY = 0,
+		BUTTON_OPTION = 1,
+		BUTTON_QUIT = 2
+	};
 
 	StartMenu() {};
 	StartMenu(float width, float height);

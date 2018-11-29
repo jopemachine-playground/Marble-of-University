@@ -20,7 +20,6 @@ public:
 	Player& getPlayer() { return keyPlayer; }
 	void setPlayer(Player& aPlayer) { keyPlayer = aPlayer; }
 
-
 	//황금열쇠의 상호작용 함수들
 	std::string keyFunction0(sf::Text *text, Board board[]);
 	std::string keyFunction1(sf::Text *text, Board board[]);

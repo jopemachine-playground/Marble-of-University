@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -12,56 +12,57 @@ using namespace std;
 
 void GoldenKey::setKey()
 {
-	//random °ªÀ» °¡Áö°í key¸¦ ¼³Á¤
+	//random ê°’ì„ ê°€ì§€ê³  keyë¥¼ ì„¤ì •
 	setRandom();
 	key = getRandom();
 }
-std::string GoldenKey::chooseKey(sf::Text *text,Board board[])
+
+std::string GoldenKey::chooseKey(sf::Text *text, Board board[])
 {
 	std::string key;
-	int result=0;
+	int result = 0;
 	switch (getKey()) {
 	case 0:
-		key = keyFunction0(text,board);
+		key = keyFunction0(text, board);
 		break;
 	case 1:
-		key = keyFunction1(text,board);
+		key = keyFunction1(text, board);
 		break;
 	case 2:
-		key = keyFunction2(text,board);
+		key = keyFunction2(text, board);
 		break;
 	case 3:
-		key = keyFunction3(text,board);
+		key = keyFunction3(text, board);
 		break;
 	case 4:
-		key = keyFunction4(text,board);
+		key = keyFunction4(text, board);
 		break;
 	case 5:
-		key = keyFunction5(text,board);
+		key = keyFunction5(text, board);
 		break;
 	case 6:
-		key = keyFunction6(text,board);
+		key = keyFunction6(text, board);
 		break;
 	case 7:
-		key = keyFunction7(text,board);
+		key = keyFunction7(text, board);
 		break;
 	case 8:
-		key = keyFunction8(text,board);
+		key = keyFunction8(text, board);
 		break;
 	case 9:
-		key = keyFunction9(text,board);
+		key = keyFunction9(text, board);
 		break;
 	case 10:
-		key = keyFunction10(text,board);
+		key = keyFunction10(text, board);
 		break;
 	case 11:
-		key = keyFunction11(text,board);
+		key = keyFunction11(text, board);
 		break;
 	case 12:
-		key = keyFunction12(text,board);
+		key = keyFunction12(text, board);
 		break;
 	case 13:
-		key = keyFunction13(text,board);
+		key = keyFunction13(text, board);
 		break;
 	default:
 		break;
@@ -73,141 +74,141 @@ std::string GoldenKey::chooseKey(sf::Text *text,Board board[])
 void GoldenKey::setRandom()
 {
 	srand((unsigned int)time(NULL));
-	random = rand() % 14;
+	random = rand() % NUMBER_OF_GOLDENKEY;
 }
 
 std::string GoldenKey::keyFunction0(sf::Text *text, Board board[])
 {
-	//ºı°ø : °¡»êÁ¡ 3Á¡ È¹µæÇÕ´Ï´Ù.
+	//ë¹¡ê³µ : ê°€ì‚°ì  3ì  íšë“í•©ë‹ˆë‹¤.
 	getPlayer().setScore(getPlayer().getScore() + 3);
-	cout << ">> ºı °ø !! <<" << endl;
-	cout << "°øºÎ¸¦ ¿­½ÉÈ÷ ÇÏ¼Ì±º¿ä! °¡»êÁ¡À» È¹µæÇÏ¼Ì½À´Ï´Ù. (+3 Á¡)" << endl;
-	text->setString(L"°øºÎ¸¦ ¿­½ÉÈ÷ ÇÏ¼Ì±º¿ä! °¡»êÁ¡À» È¹µæÇÏ¼Ì½À´Ï´Ù. (+3 Á¡)");
+	//cout << ">> ë¹¡ ê³µ !! <<" << endl;
+	//cout << "ê³µë¶€ë¥¼ ì—´ì‹¬íˆ í•˜ì…¨êµ°ìš”! ê°€ì‚°ì ì„ íšë“í•˜ì…¨ìŠµë‹ˆë‹¤. (+3 ì )" << endl;
+	text->setString(L"ê³µë¶€ë¥¼ ì—´ì‹¬íˆ í•˜ì…¨êµ°ìš”! ê°€ì‚°ì ì„ íšë“í•˜ì…¨ìŠµë‹ˆë‹¤. (+3 ì )");
 	return "score";
 }
 std::string GoldenKey::keyFunction1(sf::Text *text, Board board[])
 {
-	//¹ã»ù °øºÎ : ´ÙÀ½ ÅÏ ÁÖ»çÀ§ ±¼¸®±â¸¦ ½¬°í, ÇĞÁ¡À» 4Á¡ ¿Ã¸³´Ï´Ù.
+	//ë°¤ìƒ˜ ê³µë¶€ : ë‹¤ìŒ í„´ ì£¼ì‚¬ìœ„ êµ´ë¦¬ê¸°ë¥¼ ì‰¬ê³ , í•™ì ì„ 4ì  ì˜¬ë¦½ë‹ˆë‹¤.
 	getPlayer().setScore(getPlayer().getScore() + 4);
 	getPlayer().setSleep(getPlayer().getSleep() + 1);
-	cout << ">> ¹ã»ù °øºÎ<<" << endl;
-	cout << "³Ê¹« ¹«¸®ÇÏ½ÃÁö´Â ¸¶¼¼¿ä. ¹ã»ù °øºÎÀÇ ¹İµ¿À¸·Î ÇÑ ÅÏ ½±´Ï´Ù. (+4 Á¡)" << endl;
-	text->setString(L"³Ê¹« ¹«¸®ÇÏ½ÃÁö´Â ¸¶¼¼¿ä. ¹ã»ù °øºÎÀÇ ¹İµ¿À¸·Î ÇÑ ÅÏ ½±´Ï´Ù. (+4 Á¡)");
+	//cout << ">> ë°¤ìƒ˜ ê³µë¶€<<" << endl;
+	//cout << "ë„ˆë¬´ ë¬´ë¦¬í•˜ì‹œì§€ëŠ” ë§ˆì„¸ìš”. ë°¤ìƒ˜ ê³µë¶€ì˜ ë°˜ë™ìœ¼ë¡œ í•œ í„´ ì‰½ë‹ˆë‹¤. (+4 ì )" << endl;
+	text->setString(L"ë„ˆë¬´ ë¬´ë¦¬í•˜ì‹œì§€ëŠ” ë§ˆì„¸ìš”. ë°¤ìƒ˜ ê³µë¶€ì˜ ë°˜ë™ìœ¼ë¡œ í•œ í„´ ì‰½ë‹ˆë‹¤. (+4 ì )");
 	return "scoreAndSleep";
 }
 std::string GoldenKey::keyFunction2(sf::Text *text, Board board[])
 {
-	//´ë¸® Ãâ¼® : 3ÅÏµ¿¾È ÇĞÁ¡ÀÌ 1Á¡¾¿ Ãß°¡·Î ¿Ã¶ó°©´Ï´Ù.
+	//ëŒ€ë¦¬ ì¶œì„ : 3í„´ë™ì•ˆ í•™ì ì´ 1ì ì”© ì¶”ê°€ë¡œ ì˜¬ë¼ê°‘ë‹ˆë‹¤.
 	for (int i = 1; i < 3; i++) getPlayer().setSpecialTurn(3);
-	cout << ">>´ë¸® Ãâ¼®<<" << endl;
-	cout << "´©±º°¡¿¡°Ô Ãâ¼®À» ºÎÅ¹ÇÕ´Ï´Ù. 3ÅÏµ¿¾È ÇĞÁ¡ÀÌ 1Á¡¾¿ Ãß°¡·Î ¿Ã¶ó°©´Ï´Ù." << endl;
-	text->setString(L"´©±º°¡¿¡°Ô Ãâ¼®À» ºÎÅ¹ÇÕ´Ï´Ù. 3ÅÏµ¿¾È ÇĞÁ¡ÀÌ 1Á¡¾¿ Ãß°¡·Î ¿Ã¶ó°©´Ï´Ù.");
+	//cout << ">>ëŒ€ë¦¬ ì¶œì„<<" << endl;
+	//cout << "ëˆ„êµ°ê°€ì—ê²Œ ì¶œì„ì„ ë¶€íƒí•©ë‹ˆë‹¤. 3í„´ë™ì•ˆ í•™ì ì´ 1ì ì”© ì¶”ê°€ë¡œ ì˜¬ë¼ê°‘ë‹ˆë‹¤." << endl;
+	text->setString(L"ëˆ„êµ°ê°€ì—ê²Œ ì¶œì„ì„ ë¶€íƒí•©ë‹ˆë‹¤. 3í„´ë™ì•ˆ í•™ì ì´ 1ì ì”© ì¶”ê°€ë¡œ ì˜¬ë¼ê°‘ë‹ˆë‹¤.");
 	return "addScore";
 }
 std::string GoldenKey::keyFunction3(sf::Text *text, Board board[])
 {
-	//ÀÇ¿å¸¸¸¸ : ¾ÕÀ¸·Î 3Ä­ ¿òÁ÷ÀÔ´Ï´Ù.
+	//ì˜ìš•ë§Œë§Œ : ì•ìœ¼ë¡œ 3ì¹¸ ì›€ì§ì…ë‹ˆë‹¤.
 	for (int i = 0; i < 3; i++)
 		getPlayer().OwnPiece->MovePiece();
 	//getPlayer().setScore(getPlayer().getScore() + board[getPlayer().OwnPiece->getPositionIndex() + 3].getScore());
-	cout << ">> ÀÇ‘ò¸¸¸¸ <<" << endl;
-	cout << "³ÑÄ¡´Â ÀÇ¿åÀ¸·Î 3Ä­ ¾ÕÀ¸·Î ÀüÁøÇÕ´Ï´Ù." << endl;
-	text->setString(L"³ÑÄ¡´Â ÀÇ¿åÀ¸·Î 3Ä­ ¾ÕÀ¸·Î ÀüÁøÇÕ´Ï´Ù.");
+	//cout << ">> ì˜Â‘ìš•ë§Œ?<<" << endl;
+	//cout << "ë„˜ì¹˜ëŠ” ì˜ìš•ìœ¼ë¡œ 3ì¹¸ ì•ìœ¼ë¡œ ì „ì§„í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ë„˜ì¹˜ëŠ” ì˜ìš•ìœ¼ë¡œ 3ì¹¸ ì•ìœ¼ë¡œ ì „ì§„í•©ë‹ˆë‹¤.");
 	return "move";
 }
 std::string GoldenKey::keyFunction4(sf::Text *text, Board board[])
 {
-	//°³°­ : [½ÃÀÛ] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.
+	//ê°œê°• : [ì‹œì‘] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
 	while (!(getPlayer().OwnPiece->getPositionIndex() == 0))
 		getPlayer().OwnPiece->MovePiece();
-	cout << ">> °³°­ <<" << endl;
-	cout << "»õ ÇĞ±â°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù! [½ÃÀÛ] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << endl;
-	text->setString(L"»õ ÇĞ±â°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù! [½ÃÀÛ] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+	//cout << ">> ê°œê°• <<" << endl;
+	//cout << "ìƒˆ í•™ê¸°ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤! [ì‹œì‘] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ìƒˆ í•™ê¸°ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤! [ì‹œì‘] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 	return "start";
 }
 std::string GoldenKey::keyFunction5(sf::Text *text, Board board[])
 {
 
-	//ÅäÀÍ 800Á¡ Ãëµæ : ÇĞÁ¡ 4Á¡ Ãß°¡ÇÕ´Ï´Ù.
+	//í† ìµ 800ì  ì·¨ë“ : í•™ì  4ì  ì¶”ê°€í•©ë‹ˆë‹¤.
 	getPlayer().setScore(getPlayer().getScore() + 4);
-	cout << ">> ÅäÀÍ 800Á¡ Ãëµæ <<" << endl;
-	cout << "ÅäÀÍ 800Á¡À» È¹µæÇÏ¼Ì±º¿ä! Global English ¸éÁ¦ÀÔ´Ï´Ù! (+4 Á¡)" << endl;
-	text->setString(L"ÅäÀÍ 800Á¡À» È¹µæÇÏ¼Ì±º¿ä! Global English ¸éÁ¦ÀÔ´Ï´Ù! (+4 Á¡)");
+	//cout << ">> í† ìµ 800ì  ì·¨ë“ <<" << endl;
+	//cout << "í† ìµ 800ì ì„ íšë“í•˜ì…¨êµ°ìš”! Global English ë©´ì œì…ë‹ˆë‹¤! (+4 ì )" << endl;
+	text->setString(L"í† ìµ 800ì ì„ íšë“í•˜ì…¨êµ°ìš”! Global English ë©´ì œì…ë‹ˆë‹¤! (+4 ì )");
 	return "English";
 }
 std::string GoldenKey::keyFunction6(sf::Text *text, Board board[])
 {
-	//Á·º¸ È¹µæ : ´ÙÀ½ °­ÀÇÀÇ ÇĞÁ¡À» 1ÇĞÁ¡ Ãß°¡·Î È¹µæÇÕ´Ï´Ù.
+	//ì¡±ë³´ íšë“ : ë‹¤ìŒ ê°•ì˜ì˜ í•™ì ì„ 1í•™ì  ì¶”ê°€ë¡œ íšë“í•©ë‹ˆë‹¤.
 	getPlayer().setSpecialTurn(1);
-	cout << ">> Á·º¸ È¹µæ <<" << endl;
-	cout << "À¯¿ëÇÏ°Ô ¾µ ¼ö ÀÖ´Â Á·º¸¸¦ È¹µæÇß½À´Ï´Ù. ´ÙÀ½ °­ÀÇÀÇ ÇĞÁ¡À» 1ÇĞÁ¡ Ãß°¡ È¹µæÇÕ´Ï´Ù." << endl;
-	text->setString(L"À¯¿ëÇÏ°Ô ¾µ ¼ö ÀÖ´Â Á·º¸¸¦ È¹µæÇß½À´Ï´Ù. ´ÙÀ½ °­ÀÇÀÇ ÇĞÁ¡À» 1ÇĞÁ¡ Ãß°¡ È¹µæÇÕ´Ï´Ù.");
+	//cout << ">> ì¡±ë³´ íšë“ <<" << endl;
+	//cout << "ìœ ìš©í•˜ê²Œ ì“¸ ìˆ˜ ìˆëŠ” ì¡±ë³´ë¥¼ íšë“í–ˆìŠµë‹ˆë‹¤. ë‹¤ìŒ ê°•ì˜ì˜ í•™ì ì„ 1í•™ì  ì¶”ê°€ íšë“í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ìœ ìš©í•˜ê²Œ ì“¸ ìˆ˜ ìˆëŠ” ì¡±ë³´ë¥¼ íšë“í–ˆìŠµë‹ˆë‹¤. ë‹¤ìŒ ê°•ì˜ì˜ í•™ì ì„ 1í•™ì  ì¶”ê°€ íšë“í•©ë‹ˆë‹¤.");
 	return "AddScore";
 }
 std::string GoldenKey::keyFunction7(sf::Text *text, Board board[])
 {
-	//°úÁ¦ ¹ÌÁ¦Ãâ : ÇĞÁ¡ÀÌ 2Á¡ ±ğÀÔ´Ï´Ù.
+	//ê³¼ì œ ë¯¸ì œì¶œ : í•™ì ì´ 2ì  ê¹ì…ë‹ˆë‹¤.
 	getPlayer().setScore(getPlayer().getScore() - 2);
-	cout << ">> °úÁ¦ ¹ÌÁ¦Ãâ !! <<" << endl;
-	cout << "Àú·±.. °úÁ¦ Á¦Ãâ ¸¶°¨À» Áö³ªÃÆ½À´Ï´Ù. ÇĞÁ¡À» ÀÒ½À´Ï´Ù. (-2 Á¡)" << endl;
-	text->setString(L"Àú·±.. °úÁ¦ Á¦Ãâ ¸¶°¨À» Áö³ªÃÆ½À´Ï´Ù. ÇĞÁ¡À» ÀÒ½À´Ï´Ù. (-2 Á¡)");
+	//cout << ">> ê³¼ì œ ë¯¸ì œì¶œ !! <<" << endl;
+	//cout << "ì €ëŸ°.. ê³¼ì œ ì œì¶œ ë§ˆê°ì„ ì§€ë‚˜ì³¤ìŠµë‹ˆë‹¤. í•™ì ì„ ìƒìŠµë‹ˆë‹¤. (-2 ì )" << endl;
+	text->setString(L"ì €ëŸ°.. ê³¼ì œ ì œì¶œ ë§ˆê°ì„ ì§€ë‚˜ì³¤ìŠµë‹ˆë‹¤. í•™ì ì„ ìƒìŠµë‹ˆë‹¤. (-2 ì )");
 	return "loseScore";
 }
 std::string GoldenKey::keyFunction8(sf::Text *text, Board board[])
 {
-	//ÀÔ¿µÅëÁö¼­ : [ÈŞÇĞ] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.
-	while (!(getPlayer().OwnPiece->getPositionIndex() == 10)) //10Àº ÈŞÇĞ ¹ßÆÇÀÇ Index
+	//ì…ì˜í†µì§€ì„œ : [íœ´í•™] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
+	while (!(getPlayer().OwnPiece->getPositionIndex() == 10)) //10ì€ íœ´í•™ ë°œíŒì˜ Index
 		getPlayer().OwnPiece->MovePiece();
-	cout << ">>ÀÔ ¿µ Åë Áö ¼­<<" << endl;
-	cout << "±¹°¡°¡ ±×´ë¸¦ ºÎ¸¨´Ï´Ù! ÀÏ´Ü ÈŞÇĞÇÏ¼Å¾ß°Ú±º¿ä. [ÈŞÇĞ] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << endl;
-	text->setString(L"±¹°¡°¡ ±×´ë¸¦ ºÎ¸¨´Ï´Ù! ÀÏ´Ü ÈŞÇĞÇÏ¼Å¾ß°Ú±º¿ä. [ÈŞÇĞ] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+	//cout << ">>ì… ì˜ í†µ ì§€ ì„œ<<" << endl;
+	//cout << "êµ­ê°€ê°€ ê·¸ëŒ€ë¥¼ ë¶€ë¦…ë‹ˆë‹¤! ì¼ë‹¨ íœ´í•™í•˜ì…”ì•¼ê² êµ°ìš”. [íœ´í•™] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"êµ­ê°€ê°€ ê·¸ëŒ€ë¥¼ ë¶€ë¦…ë‹ˆë‹¤! ì¼ë‹¨ íœ´í•™í•˜ì…”ì•¼ê² êµ°ìš”. [íœ´í•™] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 	return "Absence";
 }
 std::string GoldenKey::keyFunction9(sf::Text *text, Board board[])
 {
-	//°úµµÇÑ YXXTUBE ½ÃÃ» : 3ÅÏµ¿¾È ÇĞÁ¡À» 1ÇĞÁ¡ ´ú È¹µæ ÇÕ´Ï´Ù.
+	//ê³¼ë„í•œ YXXTUBE ì‹œì²­ : 3í„´ë™ì•ˆ í•™ì ì„ 1í•™ì  ëœ íšë“ í•©ë‹ˆë‹¤.
 	for (int i = 0; i < 3; i++) getPlayer().setSpecialTurn(-3);
-	cout << ">> °úµµÇÑ YXXTUBE ½ÃÃ» <<" << endl;
-	cout << "Áö³ªÄ£ µ¿¿µ»ó ½ÃÃ»Àº ÀÏ»ó»ıÈ°¿¡ ÁöÀåÀ» ÁÙ ¼ö ÀÖ½À´Ï´Ù. 3ÅÏ µ¿¾È 1ÇĞÁ¡À» ´ú È¹µæÇÕ´Ï´Ù." << endl;
-	text->setString(L"Áö³ªÄ£ µ¿¿µ»ó ½ÃÃ»Àº ÀÏ»ó»ıÈ°¿¡ ÁöÀåÀ» ÁÙ ¼ö ÀÖ½À´Ï´Ù. 3ÅÏ µ¿¾È 1ÇĞÁ¡À» ´ú È¹µæÇÕ´Ï´Ù.");
+	cout << ">> ê³¼ë„í•œ YXXTUBE ì‹œì²­ <<" << endl;
+	cout << "ì§€ë‚˜ì¹œ ë™ì˜ìƒ ì‹œì²­ì€ ì¼ìƒìƒí™œì— ì§€ì¥ì„ ì¤„ ìˆ˜ ìˆìŠµë‹ˆë‹¤. 3í„´ ë™ì•ˆ 1í•™ì ì„ ëœ íšë“í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ì§€ë‚˜ì¹œ ë™ì˜ìƒ ì‹œì²­ì€ ì¼ìƒìƒí™œì— ì§€ì¥ì„ ì¤„ ìˆ˜ ìˆìŠµë‹ˆë‹¤. 3í„´ ë™ì•ˆ 1í•™ì ì„ ëœ íšë“í•©ë‹ˆë‹¤.");
 	return "loseAdd";
 }
 std::string GoldenKey::keyFunction10(sf::Text *text, Board board[])
 {
-	//°ø¸ğÀü Âü°¡ : [°ø¸ğÀü Âü°¡] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.
-	while (!(getPlayer().OwnPiece->getPositionIndex() == 20)) //20Àº °ø¸ğÀü Âü°¡ ¹ßÆÇÀÇ Index
+	//ê³µëª¨ì „ ì°¸ê°€ : [ê³µëª¨ì „ ì°¸ê°€] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
+	while (!(getPlayer().OwnPiece->getPositionIndex() == 20)) //20ì€ ê³µëª¨ì „ ì°¸ê°€ ë°œíŒì˜ Index
 		getPlayer().OwnPiece->MovePiece();
-	cout << ">> °ø¸ğÀü Âü°¡<<" << endl;
-	cout << "°ø¸ğÀü¿¡ Âü°¡ÇÕ´Ï´Ù! [°ø¸ğÀü Âü°¡] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << endl;
-	text->setString(L"°ø¸ğÀü¿¡ Âü°¡ÇÕ´Ï´Ù! [°ø¸ğÀü Âü°¡] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+	//cout << ">> ê³µëª¨ì „ ì°¸ê°€<<" << endl;
+	//cout << "ê³µëª¨ì „ì— ì°¸ê°€í•©ë‹ˆë‹¤! [ê³µëª¨ì „ ì°¸ê°€] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ê³µëª¨ì „ì— ì°¸ê°€í•©ë‹ˆë‹¤! [ê³µëª¨ì „ ì°¸ê°€] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 	return "competition";
 }
 std::string GoldenKey::keyFunction11(sf::Text *text, Board board[])
 {
-	//°ø¸ğÀü ¹ßÇ¥ : [°ø¸ğÀü ¹ßÇ¥] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.
-	while (!(getPlayer().OwnPiece->getPositionIndex() == 27)) //27Àº °ø¸ğÀü ¹ßÇ¥ ¹ßÆÇÀÇ Index
+	//ê³µëª¨ì „ ë°œí‘œ : [ê³µëª¨ì „ ë°œí‘œ] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
+	while (!(getPlayer().OwnPiece->getPositionIndex() == 27)) //27ì€ ê³µëª¨ì „ ë°œí‘œ ë°œíŒì˜ Index
 		getPlayer().OwnPiece->MovePiece();
-	cout << ">> °ø¸ğÀü ¹ßÇ¥<<" << endl;
-	cout << "°ø¸ğÀü¿¡¼­ ¹ßÇ¥¸¦ ÇÕ´Ï´Ù! [°ø¸ğÀü ¹ßÇ¥] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << endl;
-	text->setString(L"°ø¸ğÀü¿¡¼­ ¹ßÇ¥¸¦ ÇÕ´Ï´Ù! [°ø¸ğÀü ¹ßÇ¥] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+	//cout << ">> ê³µëª¨ì „ ë°œí‘œ<<" << endl;
+	//cout << "ê³µëª¨ì „ì—ì„œ ë°œí‘œë¥¼ í•©ë‹ˆë‹¤! [ê³µëª¨ì „ ë°œí‘œ] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ê³µëª¨ì „ì—ì„œ ë°œí‘œë¥¼ í•©ë‹ˆë‹¤! [ê³µëª¨ì „ ë°œí‘œ] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 	return "money";
 }
 std::string GoldenKey::keyFunction12(sf::Text *text, Board board[])
 {
-	//½Ã°£À» µÇµ¹¸± ¼ö ÀÖ´Ù¸é : [Å¸ÀÓ ¸Ó½Å] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.
-	while (!(getPlayer().OwnPiece->getPositionIndex() == 30)) //30Àº Å¸ÀÓ ¸Ó½Å ¹ßÆÇÀÇ Index
+	//ì‹œê°„ì„ ë˜ëŒë¦´ ìˆ˜ ìˆë‹¤ë©´ : [íƒ€ì„ ë¨¸ì‹ ] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
+	while (!(getPlayer().OwnPiece->getPositionIndex() == 30)) //30ì€ íƒ€ì„ ë¨¸ì‹  ë°œíŒì˜ Index
 		getPlayer().OwnPiece->MovePiece();
-	cout << ">> Å¸ÀÓ ¸Ó½Å<<" << endl;
-	cout << "½Ã°£À» µÇµ¹¸± ¼ö ÀÖÀ»±î¿ä? [Å¸ÀÓ ¸Ó½Å] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù." << endl;
-	text->setString(L"½Ã°£À» µÇµ¹¸± ¼ö ÀÖÀ»±î¿ä? [Å¸ÀÓ ¸Ó½Å] ¹ßÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+	//cout << ">> íƒ€ì„ ë¨¸ì‹ <<" << endl;
+	//cout << "ì‹œê°„ì„ ë˜ëŒë¦´ ìˆ˜ ìˆì„ê¹Œìš”? [íƒ€ì„ ë¨¸ì‹ ] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ì‹œê°„ì„ ë˜ëŒë¦´ ìˆ˜ ìˆì„ê¹Œìš”? [íƒ€ì„ ë¨¸ì‹ ] ë°œíŒìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 	return "time";
 }
 std::string GoldenKey::keyFunction13(sf::Text *text, Board board[])
 {
-	//´ÊÀá : ´ÙÀ½ÀÇ È¹µæÇÒ ÇĞÁ¡ÀÌ 1 °¨¼ÒÇÕ´Ï´Ù.
+	//ëŠ¦ì  : ë‹¤ìŒì˜ íšë“í•  í•™ì ì´ 1 ê°ì†Œí•©ë‹ˆë‹¤.
 	getPlayer().setSpecialTurn(-1);
-	cout << ">> ´ÊÀá <<" << endl;
-	cout << "´ÊÀáÀ» Àä½À´Ï´Ù. ¼ö¾÷¿¡ ´Ê°Ú´Â°É¿ä? ´ÙÀ½ °­ÀÇÀÇ ÇĞÁ¡À» 1Á¡ ´ú È¹µæÇÕ´Ï´Ù." << endl;
-	text->setString(L"´ÊÀáÀ» Àä½À´Ï´Ù. ¼ö¾÷¿¡ ´Ê°Ú´Â°É¿ä? ´ÙÀ½ °­ÀÇÀÇ ÇĞÁ¡À» 1Á¡ ´ú È¹µæÇÕ´Ï´Ù.");
+	//cout << ">> ëŠ¦ì  <<" << endl;
+	//cout << "ëŠ¦ì ì„ ì¤ìŠµë‹ˆë‹¤. ìˆ˜ì—…ì— ëŠ¦ê² ëŠ”ê±¸ìš”? ë‹¤ìŒ ê°•ì˜ì˜ í•™ì ì„ 1ì  ëœ íšë“í•©ë‹ˆë‹¤." << endl;
+	text->setString(L"ëŠ¦ì ì„ ì¤ìŠµë‹ˆë‹¤. ìˆ˜ì—…ì— ëŠ¦ê² ëŠ”ê±¸ìš”? ë‹¤ìŒ ê°•ì˜ì˜ í•™ì ì„ 1ì  ëœ íšë“í•©ë‹ˆë‹¤.");
 	return "loseAdd";
 }

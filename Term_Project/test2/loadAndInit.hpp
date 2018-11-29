@@ -2,35 +2,19 @@
 #include "Player.hpp"
 #include "GoldenKey.hpp"
 #pragma once
-class loadAndInit
+class LoadAndInit
 {
 public:
 	
-	loadAndInit(sf::RenderWindow& window);
-	void load(sf::RenderWindow& window);
-	void init(sf::RenderWindow& window);
+	LoadAndInit(sf::RenderWindow& window);
+	void boardDataLoad(sf::RenderWindow& window);
+	void boardDraw(sf::RenderWindow& window);
 	bool BoardWithPlayer(Player& player);
 	void passStart(Player& player);
 	void playerScore(Player* player[]);
+	void drawText(sf::RenderWindow& window);
 	int isWin(Player* player[]);
-	sf::Text getText() {
-		return text_player;
-	}
-	sf::Text getCompetitionText() {
-		return competitionText;
-	}
-	sf::Text getMessage() {
-		return message;
-	}
-	sf::Text getGoldKeyMessage() {
-		return goldenKeyText;
-	}
-	sf::Text getPlayerState() {
-		return  player_state;
-	}
-	sf::Text getAbsenceText() {
-		return  absenceText;
-	}
+
 	Board* getBoard() {
 		return allBoard;
 	}

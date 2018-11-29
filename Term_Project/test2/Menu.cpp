@@ -23,7 +23,7 @@ Menu::Menu(float width, float height) {
 
 	menuText[1].setFont(font);
 	menuText[1].setFillColor(DEFAULT_ITEM_COLOR);
-	menuText[1].setString("Options");
+	menuText[1].setString("Goto Title");
 	menuText[1].setCharacterSize(MENU_FONTSIZE);
 	menuText[1].setPosition(sf::Vector2f(MENU_TEXT_POSITION_X, MENU_TEXT_POSITION_Y * 2));
 

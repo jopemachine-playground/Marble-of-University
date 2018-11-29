@@ -3,37 +3,38 @@
 
 #include "SFML/Graphics.hpp"
 #include "Game.hpp"
+
 static sf::Vector2f MapPoint[FOOTHOLD_NUMBER] = {
 
-	/*00MapPoint*/ {_X - nd * 0 - sd * 0, _Y - nd * 0 - sd * 0},
+	/*00MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
 
 	// x좌표값만 감소합니다.
 	// MapPoint[10]은 특별 발판
 
-	/*01MapPoint*/ {_X - nd * 1 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*02MapPoint*/ {_X - nd * 2 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*03MapPoint*/ {_X - nd * 3 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*04MapPoint*/ {_X - nd * 4 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*05MapPoint*/ {_X - nd * 5 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*06MapPoint*/ {_X - nd * 6 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*07MapPoint*/ {_X - nd * 7 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*08MapPoint*/ {_X - nd * 8 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*09MapPoint*/ {_X - nd * 9 - sd * 0, _Y - nd * 0 - sd * 0},
-	/*10MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 0 - sd * 0},
+	/*01MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 1 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*02MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 2 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*03MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 3 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*04MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 4 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*05MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 5 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*06MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 6 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*07MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 7 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*08MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 8 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*09MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
+	/*10MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 0},
 
 	// y좌표값만 감소합니다.
 	// MapPoint[20]은 특별 발판
 
-	/*11MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 0 - sd * 1},
-	/*12MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 1 - sd * 1},
-	/*13MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 2 - sd * 1},
-	/*14MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 3 - sd * 1},
-	/*15MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 4 - sd * 1},
-	/*16MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 5 - sd * 1},
-	/*17MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 6 - sd * 1},
-	/*18MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 7 - sd * 1},
-	/*19MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 8 - sd * 1},
-	/*20MapPoint*/ {_X - nd * 9 - sd * 1, _Y - nd * 9 - sd * 1},
+	/*11MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 0 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*12MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 1 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*13MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 2 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*14MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 3 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*15MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 4 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*16MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 5 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*17MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 6 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*18MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 7 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*19MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 8 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
+	/*20MapPoint*/ {_X - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1, _Y - NORMAL_FOOTHOLD_DIFF_PIXEL * 9 - SPECIAL_FOOTHOLD_DIFF_PIXEL * 1},
 
 	// x좌표값만 증가합니다.
 	// MapPoint[30]은 특별 발판

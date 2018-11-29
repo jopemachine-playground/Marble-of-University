@@ -1,6 +1,9 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+// 판 크기 770*770. 한칸당 90*120 위치 0,0 ~ 700,700
+// 주사위 버튼 크기 228*88px. 위치 879,634 ~ 1106,721
+
 /*
 Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 
@@ -50,9 +53,8 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define HEIGHT_NUMBER 11 // 발판 가로 세로의 길이를 나타냄.
 #define WIDTH_NUMBER 11
 #define FOOTHOLD_NUMBER ((HEIGHT_NUMBER+WIDTH_NUMBER)*2 - 4) // 전체 발판의 길이, 갯수는 (가로 + 세로) * 2 - 4. 현재 40개고, Index가 39를 넘으면 0으로 돌아오는 구조.
-#define nd 76 // 일반 발판 당 픽셀 변화량, NORMAL_FOOTHOLD_DIFF_PIXEL
-#define sd 108 // 특수 발판 당 픽셀 변화량, SPECIAL_FOOTHOLD_DIFF_PIXEL
-//#define PIECE_PIXEL 150 // 캐릭터의 가로, 세로 픽셀 (쓰이지 않음)
+#define NORMAL_FOOTHOLD_DIFF_PIXEL 76 // 일반 발판 당 픽셀 변화량, NORMAL_FOOTHOLD_DIFF_PIXEL
+#define SPECIAL_FOOTHOLD_DIFF_PIXEL 108 // 특수 발판 당 픽셀 변화량, SPECIAL_FOOTHOLD_DIFF_PIXEL
 #define _X 792 // 캐릭터가 시작하는 점의 좌표
 #define _Y 792
 
@@ -70,6 +72,8 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define DEFAULT_STARTMENU_ITEM_COLOR sf::Color(255, 255, 255, 200) // 메뉴 색깔 
 #define SELECTED_STARTMENU_ITEM_COLOR sf::Color::Cyan // 메뉴 색깔
 #define GAME_TITLE_COLOR sf::Color::White
+#define FILE_StartMenuFont  "fonts/godoMaum.ttf"
+#define FILE_StartMenuGameTitleFont "fonts/tvNBold.ttf"
 
 // ※ Sound.hpp
 #define FILE_pieceMoveSound "sounds/PieceMoveSound.ogg"
@@ -88,8 +92,17 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define TEXT_showPlayerInformation_Y 0
 #define TEXT_showPlayerInformation_Size 35
 
-// ※ RULE
+// ※ WinMain.cpp (RULE)
 #define RULE_playerPlayingNumber 4 // 게임에 참가하는 플레이어 수. 1~4
-#define RULE_WinScore 120
+#define RULE_WinScore 120 // 점수 초과 시 게임에서 승리
+#define PIECE_MOVING_TIME 100
+
+// ※ GoldenKey.hpp
+#define NUMBER_OF_GOLDENKEY 14
+
+// ※ loadAndInit.hpp
+#define FILE_BOARD_DATA "BoardData.txt"
+#define VERTICAL_FOOTHOLD_ADD_VALUE 32
+#define COMPITITION_SCORE 2
 
 #endif

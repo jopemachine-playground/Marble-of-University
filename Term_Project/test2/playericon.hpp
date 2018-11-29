@@ -5,7 +5,7 @@
 #include "MapPoint.hpp"
 #include "Game.hpp"
 
-class Icon : public DrawableObject {
+class PlayerIcon : public DrawableObject {
 
 private:
 
@@ -20,7 +20,7 @@ public:
 	int getPositionIndex() { return positionIndex; }
 
 	
-	Icon(sf::RenderWindow& WindowRef, std::string number,int xPosition,int yPosition) {
+	PlayerIcon(sf::RenderWindow& WindowRef, std::string number,int xPosition,int yPosition) {
 		texture.loadFromFile("images/Piece" + number + ".png");
 		texture.setSmooth(true);
 		sprite.setTexture(texture);

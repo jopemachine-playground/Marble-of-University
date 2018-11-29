@@ -19,9 +19,6 @@
     <Filter Include="소스 파일\DrawableObject">
       <UniqueIdentifier>{a596fdae-c59e-41b8-8585-a01c23b727c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Board">
-      <UniqueIdentifier>{946dde78-43df-4f3d-9536-19c4760b4f85}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -72,23 +69,23 @@
     <ClInclude Include="Palete.hpp">
       <Filter>헤더 파일\DrawableObject</Filter>
     </ClInclude>
-    <ClInclude Include="Board.hpp">
-      <Filter>헤더 파일\Board</Filter>
-    </ClInclude>
-    <ClInclude Include="loadAndInit.hpp">
+    <ClInclude Include="GoldenKey.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="playericon.hpp">
+    <ClInclude Include="StartMenu.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.hpp">
       <Filter>헤더 파일\DrawableObject</Filter>
     </ClInclude>
-    <ClInclude Include="GoldenKey.hpp">
+    <ClInclude Include="PlayerIcon.hpp">
+      <Filter>헤더 파일\DrawableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadAndInit.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Dice.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -122,10 +119,16 @@
     <ClCompile Include="DicePanel.cpp">
       <Filter>소스 파일\DrawableObject</Filter>
     </ClCompile>
-    <ClCompile Include="loadAndInit.cpp">
+    <ClCompile Include="GoldenKey.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GoldenKey.cpp">
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadAndInit.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

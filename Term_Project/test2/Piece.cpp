@@ -6,7 +6,6 @@
 #include "Piece.hpp"
 #include "MapPoint.hpp"
 
-#include <iostream>
 
 /*
 한 칸씩 말을 움직임.

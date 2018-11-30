@@ -79,28 +79,18 @@ void LoadAndInit::boardDataLoad(sf::RenderWindow& window) {
 					data.txt의 내용을 읽어옵니다.
 				*/
 				std::string line, row[5];
-				char* tok_temp;
 				getline(in, line);
 
 				char* row_buffer = new char[100];
-				
-				/*
-					Data중 가장 긴 라인 : 1st,시스템 프로그래밍,3
-					= NULL까지 24 바이트를 차지함
-				*/
-
-				strcpy_s(row_buffer, 24, line.c_str());
-				
+				strcpy(row_buffer, line.c_str());
 				/*
 					delimiter = ","
 				*/
-			
-				char* tok = strtok_s(row_buffer, ",", &tok_temp);
-
+				char* tok = strtok(row_buffer, ",");
 				int j = 0;
 				while (tok != NULL) {
 					row[j++] = tok;
-					tok = strtok_s(NULL, ",", &tok_temp);
+					tok = strtok(NULL, ",");
 				}
 				std::string type = row[0];
 

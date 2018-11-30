@@ -5,7 +5,7 @@
 class LoadAndInit
 {
 public:
-	
+
 	LoadAndInit(sf::RenderWindow& window);
 	void boardDataLoad(sf::RenderWindow& window);
 	void boardDraw(sf::RenderWindow& window);
@@ -14,12 +14,13 @@ public:
 	void playerScore(Player* player[]);
 	void drawText(sf::RenderWindow& window);
 	int isWin(Player* player[]);
-
+	void printBoard(sf::RenderWindow& window);
 	Board* getBoard() {
 		return allBoard;
 	}
 
 private:
+	int count;
 	sf::Text absenceText;
 	sf::Text goldenKeyText;
 	sf::Text message;

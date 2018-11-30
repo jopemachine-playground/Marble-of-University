@@ -13,12 +13,12 @@ class Board : public DrawableObject
 {
 public:
 	Board() {
-		
+
 	}
 
-	Board(sf::RenderWindow& window,std::string type0,int xPosition,int yPosition,std::string name,int score) {
-		
-		texture.loadFromFile("images/"+type0+".png");
+	Board(sf::RenderWindow& window, std::string type0, int xPosition, int yPosition, std::string name, int score) {
+
+		texture.loadFromFile("images/" + type0 + ".png");
 		texture.setSmooth(true);
 		sprite.setTexture(texture);
 		setPosition(xPosition, yPosition);
@@ -47,14 +47,14 @@ public:
 		txt.setCharacterSize(18);
 		//nameText.setString(name);
 		nameText = txt;
-		
 
-		sf::Text scoreTxt(std::to_wstring(score)+L" 학점",font);
-		scoreTxt.setPosition(x, y+15);
+
+		sf::Text scoreTxt(std::to_wstring(score) + L" 학점", font);
+		scoreTxt.setPosition(x, y + 15);
 		scoreTxt.setFillColor(sf::Color::Black);
 		scoreTxt.setCharacterSize(18);
 		ScoreText = scoreTxt;
-		
+
 	}
 	void setPosition(int xPosition, int yPosition) {
 		//texture.loadFromFile("images/" + type + ".png");
@@ -75,7 +75,7 @@ public:
 
 	void setScore(int _score) { score = _score; }
 
-	
+
 	sf::Text getText() {
 		return nameText;
 	}
@@ -89,11 +89,16 @@ public:
 
 		if (mousePosition.x > positionX && mousePosition.x < positionX + 76 && mousePosition.y > positionY && mousePosition.y < positionY + 108)
 			return true;
-		else 
+		else
 			return false;
 
 	}
-
+	int getPositionX() {
+		return positionX;
+	}
+	int getPositionY() {
+		return positionY;
+	}
 private:
 	int positionX = DrawableObject::getPositionX();
 	int positionY = DrawableObject::getPositionY();
@@ -107,7 +112,7 @@ private:
 	int score;
 	std::string name;
 	std::string type;
-	
+
 };
 #endif
 

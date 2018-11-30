@@ -45,7 +45,7 @@ LoadAndInit::LoadAndInit(sf::RenderWindow& window)
 	goldenKeyText.setPosition(150, 400);
 	goldenKeyText.setFillColor(sf::Color::Black);
 	goldenKeyText.setCharacterSize(TEXT_showPlayerInformation_Size - 10);
-
+	count = 0;
 }
 
 /* 아래 메서드는 사용되지 않음 */
@@ -66,94 +66,90 @@ void LoadAndInit::boardDataLoad(sf::RenderWindow& window) {
 
 	std::ifstream in(FILE_BOARD_DATA);
 
-	if (window.isOpen()) {
+	if (in.is_open()) {
 
-		if (in.is_open()) {
+		for (int i = 0; i < FOOTHOLD_NUMBER; i++) {
 
-			for (int i = 0; i < FOOTHOLD_NUMBER; i++) {
+			int x = MapPoint[i].x;
+			int y = MapPoint[i].y;
 
-				int x = MapPoint[i].x;
-				int y = MapPoint[i].y;
+			/*
+				data.txt의 내용을 읽어옵니다.
+			*/
+			std::string line, row[5];
+			getline(in, line);
 
-				/*
-					data.txt의 내용을 읽어옵니다.
-				*/
-				std::string line, row[5];
-				char* tok_temp;
-				getline(in, line);
+			char* row_buffer = new char[100];
+			strcpy(row_buffer, line.c_str());
+			/*
+				delimiter = ","
+			*/
+			char* tok = strtok(row_buffer, ",");
+			int j = 0;
+			while (tok != NULL) {
+				row[j++] = tok;
+				tok = strtok(NULL, ",");
+			}
+			std::string type = row[0];
 
-				char* row_buffer = new char[100];
+			int score = atoi(row[2].c_str());
 
-				/*
-					Data중 가장 긴 라인 : 1st,시스템 프로그래밍,3
-					= NULL까지 24 바이트를 차지함
-				*/
+			/*
+				세로 발판의 경우
+				가로 발판의 경우와 다르게,
+				캐릭터를 좀 더 띄워야 합니다.
 
-				strcpy_s(row_buffer, 24, line.c_str());
+				그 수치가 VERTICAL_FOOTHOLD_ADD_VALUE이고 32입니다.
+			*/
 
-				/*
-					delimiter = ","
-				*/
-
-				char* tok = strtok_s(row_buffer, ",", &tok_temp);
-
-				int j = 0;
-				while (tok != NULL) {
-					row[j++] = tok;
-					tok = strtok_s(NULL, ",", &tok_temp);
-				}
-				std::string type = row[0];
-
-				int score = atoi(row[2].c_str());
-
-				/*
-					세로 발판의 경우
-					가로 발판의 경우와 다르게,
-					캐릭터를 좀 더 띄워야 합니다.
-
-					그 수치가 VERTICAL_FOOTHOLD_ADD_VALUE이고 32입니다.
-				*/
-
-				if ((i >= 11 && i < 20) || i >= 31) y += VERTICAL_FOOTHOLD_ADD_VALUE;
+			if ((i >= 11 && i < 20) || i >= 31) y += VERTICAL_FOOTHOLD_ADD_VALUE;
 
 
-				allBoard[i] = (Board)*(new Board(window, type, x, y, row[1], score));
+			allBoard[i] = (Board)*(new Board(window, type, x, y, row[1], score));
 
-				window.draw(allBoard[i].getSprite());
 
-				/*
-					로드한 데이터를 window에 표시합니다
-				*/
+		} // end of for
 
-				if (allBoard[i].getType() == "1st") {
-					allBoard[i].setText(x + 3, y + 28, allBoard[i].getName());
-					window.draw(allBoard[i].getText());
-					window.draw(allBoard[i].getScoreText());
-				}
-				if (allBoard[i].getType() == "2nd") {
-					allBoard[i].setText(x + 10, y + 5, allBoard[i].getName());
-					window.draw(allBoard[i].getText());
-					window.draw(allBoard[i].getScoreText());
-				}
-				if (allBoard[i].getType() == "3rd") {
-					allBoard[i].setText(x + 3, y + 15, allBoard[i].getName());
-					window.draw(allBoard[i].getText());
-					window.draw(allBoard[i].getScoreText());
-				}
-				if (allBoard[i].getType() == "4rd") {
-					allBoard[i].setText(x + 30, y + 15, allBoard[i].getName());
-					window.draw(allBoard[i].getText());
-					window.draw(allBoard[i].getScoreText());
-				}
-			} // end of for
+		in.close();
+	}
+	else {
 
-			in.close();
+
+	}
+}
+void LoadAndInit::printBoard(sf::RenderWindow& window) {
+	for (int i = 0; i < 40; i++)
+	{
+
+		window.draw(allBoard[i].getSprite());
+
+		/*
+		로드한 데이터를 window에 표시합니다
+		*/
+
+		if (allBoard[i].getType() == "1st") {
+			allBoard[i].setText(allBoard[i].getPositionX() + 3, allBoard[i].getPositionY() + 28, allBoard[i].getName());
+			window.draw(allBoard[i].getText());
+			window.draw(allBoard[i].getScoreText());
 		}
-		else {
-
+		if (allBoard[i].getType() == "2nd") {
+			allBoard[i].setText(allBoard[i].getPositionX() + 10, allBoard[i].getPositionY() + 5, allBoard[i].getName());
+			window.draw(allBoard[i].getText());
+			window.draw(allBoard[i].getScoreText());
+		}
+		if (allBoard[i].getType() == "3rd") {
+			allBoard[i].setText(allBoard[i].getPositionX() + 3, allBoard[i].getPositionY() + 15, allBoard[i].getName());
+			window.draw(allBoard[i].getText());
+			window.draw(allBoard[i].getScoreText());
+		}
+		if (allBoard[i].getType() == "4rd") {
+			allBoard[i].setText(allBoard[i].getPositionX() + 30, allBoard[i].getPositionY() + 15, allBoard[i].getName());
+			window.draw(allBoard[i].getText());
+			window.draw(allBoard[i].getScoreText());
 		}
 	}
 }
+
 void LoadAndInit::passStart(Player& player) {
 	int index = player.OwnPiece->getPositionIndex();
 	if (allBoard[index].getType() == "start") {

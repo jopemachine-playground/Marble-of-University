@@ -55,9 +55,9 @@ void LoadAndInit::boardDraw(sf::RenderWindow& window) {
 }
 
 /*
-	
+
 	WinMain에서 무한루프를 돌며 DataLoad를 반복합니다.
-	
+
 	=> 데이터를 한 번만 로드해 계속 끌어다 쓸 방법은??
 	(전역변수 말고 다른 방법으로)
 
@@ -79,18 +79,28 @@ void LoadAndInit::boardDataLoad(sf::RenderWindow& window) {
 					data.txt의 내용을 읽어옵니다.
 				*/
 				std::string line, row[5];
+				char* tok_temp;
 				getline(in, line);
 
 				char* row_buffer = new char[100];
-				strcpy(row_buffer, line.c_str());
+
+				/*
+					Data중 가장 긴 라인 : 1st,시스템 프로그래밍,3
+					= NULL까지 24 바이트를 차지함
+				*/
+
+				strcpy_s(row_buffer, 24, line.c_str());
+
 				/*
 					delimiter = ","
 				*/
-				char* tok = strtok(row_buffer, ",");
+
+				char* tok = strtok_s(row_buffer, ",", &tok_temp);
+
 				int j = 0;
 				while (tok != NULL) {
 					row[j++] = tok;
-					tok = strtok(NULL, ",");
+					tok = strtok_s(NULL, ",", &tok_temp);
 				}
 				std::string type = row[0];
 
@@ -100,7 +110,7 @@ void LoadAndInit::boardDataLoad(sf::RenderWindow& window) {
 					세로 발판의 경우
 					가로 발판의 경우와 다르게,
 					캐릭터를 좀 더 띄워야 합니다.
-					
+
 					그 수치가 VERTICAL_FOOTHOLD_ADD_VALUE이고 32입니다.
 				*/
 

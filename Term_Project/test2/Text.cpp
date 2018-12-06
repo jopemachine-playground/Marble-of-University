@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "Text.hpp"
-#include "NewBoard.hpp"
+#include "BoardPlate.hpp"
 
 Text* Text::instance = nullptr;
 

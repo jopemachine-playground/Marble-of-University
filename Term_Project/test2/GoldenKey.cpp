@@ -160,7 +160,7 @@ std::string GoldenKey::keyFunction8(sf::Text *text, Board board[])
 		getPlayer().OwnPiece->MovePiece();
 	//cout << ">>입 영 통 지 서<<" << endl;
 	//cout << "국가가 그대를 부릅니다! 일단 휴학하셔야겠군요. [휴학] 발판으로 이동합니다." << endl;
-	text->setString(L"국가가 그대를 부릅니다! 일단 휴학하셔야겠군요. [휴학] 발판으로 이동합니다.");
+	text->setString(L"국가가 그대를 부릅니다! 일단 휴학하셔야겠군요. [무인도] 발판으로 이동합니다.");
 	return "Absence";
 }
 std::string GoldenKey::keyFunction9(sf::Text *text, Board board[])

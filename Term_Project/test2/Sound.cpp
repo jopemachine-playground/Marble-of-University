@@ -2,8 +2,9 @@
 
 #include "Sound.hpp"
 
-Sound::Sound(){
+Sound* Sound::instance = nullptr;
 
+Sound::Sound() {
 	pieceMoveSoundBuffer.loadFromFile(FILE_pieceMoveSound);
 	pieceMoveSound.setBuffer(pieceMoveSoundBuffer);
 	pieceMoveSound.setVolume(VOLUME_pieceMoveSound);
@@ -15,5 +16,4 @@ Sound::Sound(){
 	backGroundMusic.openFromFile(FILE_backGroundMusic);
 	backGroundMusic.setVolume(VOLUME_backGroundMusic);
 	backGroundMusic.setLoop(true);
-
 }

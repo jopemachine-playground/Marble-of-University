@@ -1,2 +1,8 @@
-﻿  pch.cpp
-c:\users\ngun2\source\repos\2018_fall_termproject_181124\term_project\test2\pch.h(4): fatal error C1083: 포함 파일을 열 수 없습니다. 'SFML/Graphics.hpp': No such file or directory
+﻿  Piece.cpp
+d:\바탕화면\2018_fall_termproject_181124\term_project\test2\piece.cpp(22): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  1 of 469 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  test2.vcxproj -> D:\바탕화면\2018_fall_TermProject_181124\Term_Project\Release\BlueMarble.exe

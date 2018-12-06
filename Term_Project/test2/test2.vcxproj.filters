@@ -27,9 +27,6 @@
     <ClInclude Include="Dice.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MapPoint.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Player.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -81,14 +78,11 @@
     <ClInclude Include="PlayerIcon.hpp">
       <Filter>헤더 파일\DrawableObject</Filter>
     </ClInclude>
-    <ClInclude Include="LoadAndInit.hpp">
+    <ClInclude Include="BoardPlate.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Dice.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -113,9 +107,6 @@
     <ClCompile Include="Piece.cpp">
       <Filter>소스 파일\DrawableObject</Filter>
     </ClCompile>
-    <ClCompile Include="GameBoard.cpp">
-      <Filter>소스 파일\DrawableObject</Filter>
-    </ClCompile>
     <ClCompile Include="DicePanel.cpp">
       <Filter>소스 파일\DrawableObject</Filter>
     </ClCompile>
@@ -128,7 +119,16 @@
     <ClCompile Include="WinMain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="LoadAndInit.cpp">
+    <ClCompile Include="Dice.cpp">
+      <Filter>소스 파일\DrawableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBoard.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>소스 파일\DrawableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardPlate.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

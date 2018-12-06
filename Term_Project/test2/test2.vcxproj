@@ -171,15 +171,14 @@
     <ClInclude Include="DicePanel.hpp" />
     <ClInclude Include="DiceRollButton.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="BoardPlate.hpp" />
     <ClInclude Include="StartMenu.hpp" />
     <ClInclude Include="GoldenKey.hpp" />
-    <ClInclude Include="LoadAndInit.hpp" />
     <ClInclude Include="Palete.hpp" />
     <ClInclude Include="Panel.hpp" />
     <ClInclude Include="Text.hpp" />
     <ClInclude Include="GameBoard.hpp" />
     <ClInclude Include="Dice.hpp" />
-    <ClInclude Include="MapPoint.hpp" />
     <ClInclude Include="Menu.hpp" />
     <ClInclude Include="Sound.hpp" />
     <ClInclude Include="pch.h" />
@@ -189,10 +188,11 @@
     <ClInclude Include="PlayerIcon.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
     <ClCompile Include="DicePanel.cpp" />
     <ClCompile Include="DiceRollButton.cpp" />
     <ClCompile Include="GoldenKey.cpp" />
-    <ClCompile Include="LoadAndInit.cpp" />
+    <ClCompile Include="BoardPlate.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="GameBoard.cpp" />

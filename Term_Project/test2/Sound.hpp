@@ -9,6 +9,11 @@
 class Sound {
 	
 	private:
+
+		Sound();
+		//Sound(const Sound& other) {};
+		static Sound*instance;
+
 		sf::SoundBuffer pieceMoveSoundBuffer;
 		sf::Sound pieceMoveSound;
 		sf::SoundBuffer buttonClickedSoundBuffer;
@@ -16,7 +21,14 @@ class Sound {
 		sf::Music backGroundMusic;
 
 	public:
-		Sound();
+
+		static Sound* getInstance() {
+			if (instance == 0) {
+				instance = new Sound();
+			}
+			return instance;
+		}
+
 		void PlayButtonClickedSound() { buttonClickedSound.play(); }
 		void PlayPieceMoveSound() { pieceMoveSound.play(); }
 		void PlayBackGroundMusic() { backGroundMusic.play(); }

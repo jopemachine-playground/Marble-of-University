@@ -2,7 +2,6 @@
 #define ICON_HPP
 
 #include "DrawableObject.hpp"
-#include "MapPoint.hpp"
 #include "Game.hpp"
 
 class PlayerIcon : public DrawableObject {

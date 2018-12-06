@@ -33,9 +33,7 @@ enum paleteNumber {
 
 };
 
-
-
-void DrawAfterRollDice(sf::RenderWindow& window, DrawableObject* obj[], loadAndInit load) {
+void DrawAfterRollDice(sf::RenderWindow& window, DrawableObject* obj[], LoadAndInit load) {
 
 	window.clear();
 	// 0
@@ -60,11 +58,7 @@ void DrawAfterRollDice(sf::RenderWindow& window, DrawableObject* obj[], loadAndI
 	}
 
 	// loadAndInit
-	window.draw(load.getText());
-	window.draw(load.getCompetitionText());
-	window.draw(load.getMessage());
-	window.draw(load.getGoldKeyMessage());
-	window.draw(load.getPlayerState());
+	load.drawText(window);
 	window.display();
 
 }

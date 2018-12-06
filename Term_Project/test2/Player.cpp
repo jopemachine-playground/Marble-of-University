@@ -38,3 +38,4 @@ void Player::setSpecialTurn(int aTurn) {
 	specialTurn = aTurn;
 }
 
+

@@ -5,8 +5,6 @@
 #include <ctime>
 #include "GoldenKey.hpp"
 #include "Player.hpp"
-#include "MapPoint.hpp"
-#include "loadAndInit.hpp"
 
 using namespace std;
 

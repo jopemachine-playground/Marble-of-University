@@ -106,3 +106,4 @@ Game.hpp는 모든 헤더파일에 들어가는 상수 값들을 모아놓았습니다.
 #define COMPITITION_SCORE 2
 
 #endif
+

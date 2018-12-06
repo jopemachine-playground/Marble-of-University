@@ -2,8 +2,8 @@
 #define PIECE_HPP
 
 #include "DrawableObject.hpp"
-#include "MapPoint.hpp"
 #include "Game.hpp"
+#include "Board.hpp"
 
 class Piece : public DrawableObject {
 

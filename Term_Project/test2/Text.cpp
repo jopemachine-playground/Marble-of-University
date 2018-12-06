@@ -85,7 +85,7 @@ void Text::drawText(sf::RenderWindow& window) {
 void Text::drawTextArgu(int num, int what,int turn) {
 	// 이 함수를 what의 값이 몇이냐에 따라 다른 용도로 쓴다.
 	// what이 1이면 현재 턴 수 출력할때, 2이면 플레이어 점수 출력할때..
-	if (what == TextBranch::TRUN_NUMBER) {
+	if (what == TextBranch::TURN_NUMBER) {
 		// "현재 num 턴 입니다."
 		// 한글이 깨지는 현상이 있어, 영어로 대체함.
 		text_turn.setString(L"현재 Player" + std::to_wstring(num) + L"의 턴입니다\n\n"+
@@ -100,7 +100,7 @@ void Text::drawTextArgu(int num, int what,int turn) {
 
 sf::Text Text::getText(int what) {
 
-	if (what == TextBranch::TRUN_NUMBER) {
+	if (what == TextBranch::TURN_NUMBER) {
 		// 이때는 text_turn을 return 하자.
 		return text_turn;
 	}

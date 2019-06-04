@@ -11,4 +11,4 @@ C++, SFML 2.5.1을 사용해 구현했고, Windows10의 Visual Studio 2017에서
 # Screen shot
 
 
-![Alt Text](https://github.com/jopemachine/marble_of_university/blob/master/Term_Project/screenshot.gif)
+![Alt Text](https://github.com/jopemachine/Marble-of-University/blob/master/Term_Project/screenshot.gif)

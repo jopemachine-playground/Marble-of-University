@@ -52,7 +52,8 @@ C++, SFML 2.5.1을 사용해 구현했고, Windows10의 Visual Studio 2017에서
 
 • Player : 하나의 Piece (말) 객체를 가지며 점수를 얻어 관리하는 플레이어 객체를 만듭니다.
 
-• DrawableObject : 저희는 게임에 그림 파일로 그려질 객체들의 부모 클래스로 DrawableObject 클래스를 만들었습니다. 
+• DrawableObject : 저희는 게임에 그림 파일로 그려질 객체들의 부모 클래스로 
+DrawableObject 클래스를 만들었습니다. 
 DrawableObject 클래스는 Piece, Board, Panel, Botton 등 다양한 자식 클래스들을 가지고 있습니다.
 
 • Piece : 플레이어가 게임을 진행하며 움직일 수 있는 말에 해당합니다. 
@@ -60,32 +61,37 @@ DrawableObject 클래스는 Piece, Board, Panel, Botton 등 다양한 자식 클
 • GameBoard : 게임 판에 해당합니다. DrawableObject를 상속합니다. 
 
 • Button : 버튼을 눌러 플레이어와 상호작용할 수 있게 합니다. DrawableObject를 상속합니다. 
-Button을 상속하는 자식클래스는 isInButton() 메서드를 구현해야 하며, main함수에서 마우스 클릭 이벤트가 발생하고, 
+Button을 상속하는 자식클래스는 isInButton() 메서드를 구현해야 하며, 
+main함수에서 마우스 클릭 이벤트가 발생하고, 
 isInButton() 이 True를 리턴할 때 버튼이 눌러진 것으로 간주합니다. 
 
 • DiceRollButton : Button을 상속받으며, 게임 창에 주사위 굴리기 버튼을 그리고 관리합니다.
 
 • Panel : 화면에 창을 띄웁니다. DrawableObject를 상속합니다. 
 
-• DicePanel : 주사위가 굴러가는 패널입니다. Panel을 상속합니다. Sprite와 Texture를 넣어 패널 자체의 이미지도 넣으려 했으나,
+• DicePanel : 주사위가 굴러가는 패널입니다. Panel을 상속합니다. 
+Sprite와 Texture를 넣어 패널 자체의 이미지도 넣으려 했으나,
 좋은 이미지 파일이 없어 넣지 않았습니다.
 
 • Sound : 효과음, 배경음 등을 관리합니다. 모든 사운드를 하나의 객체로 관리하도록 했습니다.
 
 • Menu : main에서 키보드 입력 이벤트가 발생하고, 이벤트가 ESC키에 해당할 때 메뉴를 호출합니다. 
 Menu.cpp에 정의된 moveUp(), moveDown()으로 메뉴 항목을 선택하고 엔터키로 결정할 수 있습니다. 
-게임 도중 Menu를 호출하여 다시 game으로 돌아갈 수 있으며, StartMenu 화면으로 돌아갈 수 있고 Exit로 게임을 종료할 수 있음.
+게임 도중 Menu를 호출하여 다시 game으로 돌아갈 수 있으며, StartMenu 화면으로 돌아갈 수 있고 
+Exit로 게임을 종료할 수 있음.
 
 • StartMenu : Menu를 상속하여 moveUp, moveDown등의 메서드를 그대로 이용합니다. 
 StartMenu는 게임을 처음 실행했을 때 나오는 메뉴 창의 클래스입니다.
 
-• Dice : 주사위에서 사용할 난수를 생성하고 관리하는 클래스로, 난수는 std::uniform_int_distribution<>를 사용해 생성합니다.
+• Dice : 주사위에서 사용할 난수를 생성하고 관리하는 클래스로, 
+난수는 std::uniform_int_distribution<>를 사용해 생성합니다.
 
 • Turn : 게임의 턴 수를 관리합니다. 주사위를 한 번 굴릴 때 마다 턴 수가 1씩 증가합니다.
 
 • Text : DrawableObject 와는 별개로 게임 창에 들어가는 텍스트들을 관리합니다.
 
-• GoldenKey : srand()를 이용해 랜덤으로 keyFuction0~ keyFunction13을 호출합니다. 각 메서드는 황금열쇠 이벤트에 대응합니다.
+• GoldenKey : srand()를 이용해 랜덤으로 keyFuction0~ keyFunction13을 호출합니다. 
+각 메서드는 황금열쇠 이벤트에 대응합니다.
 
 • LoadAndInit : 발판을 초기화 합니다. 초기화할 땐, BoardData.txt의 정보를 가져와 게임에 이용하고, 
 발판의 맵 좌표는 MapPoint.hpp에서 가져옵니다. 

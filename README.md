@@ -121,6 +121,7 @@ ASNI와 유니코드 사이의 변환을 위해 USES_CONVERSION 매크로를 사
 
 ( ※공식 홈페이지 주소 : https://www.sfml-dev.org/index.php)
 
+```
 • sf - sfml의 네임스페이스입니다. 
 
 • sf::Texture – 그림 파일을 읽어와 저장하고 관리할 Texture 객체를 만듭니다. 
@@ -134,3 +135,4 @@ ASNI와 유니코드 사이의 변환을 위해 USES_CONVERSION 매크로를 사
 • sf::Font – Text객체에 폰트에 관련된 속성들을 주거나, 변경할 수 있습니다. 
 
 • sf::Text – RenderWindow 객체에 텍스트를 그릴 수 있게 하는 객체를 만들 수 있게 합니다. 
+```

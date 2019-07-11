@@ -1,11 +1,18 @@
 <h2>Marble-of-University</h2>
-2018 CNU Object Oriented Programming Term Project
+2018 CNU Object Oriented Programming Term Project  
 
-<h2>Development Environment</h2>
-C++, SFML 2.5.1을 사용해 구현했고, Windows10의 Visual Studio 2017에서 작업했다.
-
+```
 참여인원:
 201302435 유영근, 201300995 이상건, 201502094 이재호, 201502085 이규봉
+```
+
+<h2>Development Environment</h2>
+
+>SFML 2.5.1
+>
+>Visual Studio 2017 
+>
+>Windows 10
 
 <h2>Game Manual</h2>
 

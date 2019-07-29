@@ -1,6 +1,8 @@
 <h2>Marble-of-University</h2>
-2018 CNU Object Oriented Programming Term Project  
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbce8803bd8b4a188104a11b1c8a6a4f)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jopemachine/Marble-of-University&amp;utm_campaign=Badge_Grade)
+
+2018 CNU Object Oriented Programming Term Project  
 
 ```
 참여인원:

@@ -1,4 +1,4 @@
-<h2>Marble-of-University</h2>
+## Marble of University
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbce8803bd8b4a188104a11b1c8a6a4f)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jopemachine/Marble-of-University&amp;utm_campaign=Badge_Grade)
 
@@ -19,15 +19,15 @@
 
 <h2>Game Manual</h2>
 
-<게임의 진행>
+* <b>게임의 진행</b>
 
 한 턴에 한 번씩 주사위를 2개 굴려 눈의 합만큼 말을 이동 시키며 게임을 진행
 
-<승리조건>
+* <b>승리 조건</b>
 
 플레이어 중 한명이 기준 학점을 다 채우면 승리.
 
-<학점을 올리는 규칙>
+* <b>학점을 올리는 규칙</b>
 
 발판을 밟으면 해당 학생의 학점이 올라감.
 
